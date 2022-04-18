@@ -5,7 +5,6 @@ import { getAllPostIds, getPostData } from "../../lib/posts";
 import utilStyles from "../../styles/utils.module.css";
 
 export async function getStaticProps({ params }) {
-  console.log(1, params);
   const postData = await getPostData(params.id);
 
   return {
@@ -15,8 +14,8 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export async function getStaticPaths() {
-  const paths = await getAllPostIds();
+export function getStaticPaths() {
+  const paths = getAllPostIds();
   return {
     paths,
     fallback: true,
